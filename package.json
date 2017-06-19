@@ -1,0 +1,133 @@
+{
+  "name": "egg-restapi-module-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pro": "EGG_SERVER_ENV=prod nohup node dispatch.js > stdout.log 2> stderr.log &",
+    "dev": "npm run server & npm run dev_static",
+    "dev_static": "webpack-dev-server --inline --hot --watch --progress --config ./static/build/webpack.dev.config.js",
+    "build": "webpack  --progress --config ./static/build/webpack.prod.config.js && node ./scripts/copy.js",
+    "server": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "egg-bin test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "6.4.0",
+    "axios": "^0.16.1",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-import": "^1.1.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-runtime": "^6.20.0",
+    "chalk": "^1.1.1",
+    "commander": "~2.9.0",
+    "css-loader": "0.24.0",
+    "egg-bin": "^3.1.0",
+    "egg-mock": "^3.2.0",
+    "eslint": "1.8.0",
+    "eslint-loader": "1.1.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "~0.8.4",
+    "json-loader": "~0.5.4",
+    "less": "2.5.3",
+    "less-loader": "2.2.1",
+    "less-plugin-npm-import": "^2.1.0",
+    "node-sass": "3.8.0",
+    "postcss": "^5.2.17",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^0.11.1",
+    "postcss-modules": "^0.8.0",
+    "postcss-nested": "^2.0.2",
+    "postcss-nesting": "^4.0.1",
+    "sass-loader": "4.0.0",
+    "style-loader": "0.13.1",
+    "supertest": "^3.0.0",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "draft-js-export-html": "0.5.2",
+    "draftjs-to-html": "^0.7.2",
+    "antd": "^2.8.2",
+    "co-fs": "^1.2.0",
+    "dva": "^1.1.0",
+    "dva-loading": "^0.2.0",
+    "egg": "^1.0.0",
+    "egg-cors": "^1.1.0",
+    "egg-multipart": "^1.2.0",
+    "egg-mysql": "^2.0.0",
+    "egg-security": "^1.8.0",
+    "egg-sequelize": "^2.0.1",
+    "egg-validate": "^1.0.0",
+    "egg-view-nunjucks": "^2.0.0",
+    "egg-view-react": "^0.0.1",
+    "mysql": "^2.13.0",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "rc-tween-one": "^1.2.5",
+    "react": "^15.4.1",
+    "react-countup": "1.3.0",
+    "react-dom": "^15.4.1",
+    "react-draft-wysiwyg": "^1.8.1",
+    "react-helmet": "^5.0.0",
+    "react-router": "^2.8.1",
+    "rucksack-css": "^0.9.1",
+    "stream-wormhole": "^1.0.3"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "rules": {
+      "indent": [
+        2,
+        4
+      ],
+      "quotes": [
+        2,
+        "single"
+      ],
+      "linebreak-style": [
+        2,
+        "windows"
+      ],
+      "semi": [
+        2,
+        "always"
+      ],
+      "no-trailing-spaces": 2,
+      "space-before-function-paren": [
+        2,
+        "always"
+      ],
+      "eqeqeq": [
+        2,
+        "allow-null"
+      ],
+      "no-console": 0,
+      "no-cond-assign": 0,
+      "no-extra-boolean-cast": 0,
+      "no-unused-vars": 0
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended"
+  },
+  "maintainers": [
+    {
+      "name": "fomenyesu",
+      "email": "fomenyesu@gmail.com"
+    }
+  ]
+}
