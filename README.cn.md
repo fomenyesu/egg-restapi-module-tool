@@ -2,13 +2,13 @@
 
 一个使用 eggjs, react, antd, dva, webpack, mysql, restful api的实例。主要实现通过配置模块表跟表结构来生成对应的restful api 接口的功能。
 
+系统主要包括两个功能：
+1 模块管理 对模块表进行管理，实现模块表的CRUD操作
+2 接口管理 提供接口说明，已经接口调试器方便进行接口调试。
+
 # Examples for [egg](https://github.com/eggjs/egg/)
 
 前端使用react+Antd+Dva实现页面功能，后端使用eggjs+mysql实现。使用npm run dev进行开发，npm run build 直接进行构建。可作egg项目的简单的boilerplate使用。
-
-包括两个功能：
-1 模块管理 对模块表进行管理，实现模块表的CRUD操作
-2 接口管理 提供接口说明，已经接口调试器方便进行接口调试。
 
 ## Develop
 
