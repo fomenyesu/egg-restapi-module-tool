@@ -104,3 +104,7 @@ api/restql/users/2 DELETE Delete data with uid
 ```
 
 其他新增的模块都会自动生成这5种restful API请求接口。
+
+# 感谢
+[egg](https://github.com/eggjs/egg/)
+[antd-admin](https://github.com/zuiidea/antd-admin)
