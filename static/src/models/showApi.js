@@ -1,4 +1,5 @@
 import { query} from '../services/showApi'
+import config from '../utils/config'
 
 export default {
 
@@ -44,7 +45,7 @@ export default {
        actionData.forEach((v)=>{
          ['list','post','put','delete','show'].forEach((v1)=>{
           result.push({
-            url: "http://127.0.0.1:7001/api/restql/"+v.template,
+            url: config.devBaseURL+"/api/restql/"+v.template,
             desc: v.template_name,
             method: v1,
             data:{}
