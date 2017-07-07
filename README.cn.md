@@ -1,6 +1,6 @@
 # Egg Restapi Module Tool
 
-主要实现通过配置模块表跟表结构来生成对应的restful api 接口的功能。一个使用 eggjs, react, antd, dva, webpack, mysql, restful api的实例。
+一个使用 eggjs, react, antd, dva, webpack, mysql 通过模块管理配置模块表跟表结构来生成生成对应的restful api的实例。
 
 系统主要包括两个功能：
 1 模块管理 对模块表进行管理，实现模块表的CRUD操作
