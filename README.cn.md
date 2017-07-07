@@ -1,15 +1,15 @@
 # Egg Restapi Module Tool
 
-![login.png](http://api.dll0.com/public/img/login.png)
-![page1.png](http://api.dll0.com/public/img/page1.png)
-![page2.png](http://api.dll0.com/public/img/page2.png)
-![page3.png](http://api.dll0.com/public/img/page3.png)
-
 主要实现通过配置模块表跟表结构来生成对应的restful api 接口的功能。一个使用 eggjs, react, antd, dva, webpack, mysql, restful api的实例。
 
 系统主要包括两个功能：
 1 模块管理 对模块表进行管理，实现模块表的CRUD操作
 2 接口管理 提供接口说明，已经接口调试器方便进行接口调试。
+
+![login.png](http://api.dll0.com/public/img/login.png)
+![page1.png](http://api.dll0.com/public/img/page1.png)
+![page2.png](http://api.dll0.com/public/img/page2.png)
+![page3.png](http://api.dll0.com/public/img/page3.png)
 
 # Examples for [egg](https://github.com/eggjs/egg/)
 
