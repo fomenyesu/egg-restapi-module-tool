@@ -6,11 +6,6 @@
 1 模块管理 对模块表进行管理，实现模块表的CRUD操作
 2 接口管理 提供接口说明，已经接口调试器方便进行接口调试。
 
-![login.png](http://api.dll0.com/public/img/login.png)
-![page1.png](http://api.dll0.com/public/img/page1.png)
-![page2.png](http://api.dll0.com/public/img/page2.png)
-![page3.png](http://api.dll0.com/public/img/page3.png)
-
 # Examples for [egg](https://github.com/eggjs/egg/)
 
 1 前端使用react+Antd+Dva实现页面功能
@@ -104,6 +99,12 @@ api/restql/users/2 DELETE Delete data with uid
 ```
 
 其他新增的模块都会自动生成这5种restful API请求接口。
+
+# 截屏
+![login.png](http://api.dll0.com/public/img/login.png)
+![page1.png](http://api.dll0.com/public/img/page1.png)
+![page2.png](http://api.dll0.com/public/img/page2.png)
+![page3.png](http://api.dll0.com/public/img/page3.png)
 
 # 感谢
 [egg](https://github.com/eggjs/egg/)
