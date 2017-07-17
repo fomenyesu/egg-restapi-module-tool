@@ -100,5 +100,9 @@ api/restql/users POST insert data
 same with news and news_type for rest api data.
 
 # Thank you
+
 [egg](https://github.com/eggjs/egg/)
+
+[ant-design](https://github.com/ant-design/ant-design/)
+
 [antd-admin](https://github.com/zuiidea/antd-admin)
