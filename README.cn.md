@@ -3,16 +3,23 @@
 一个使用 eggjs, react, antd, dva, webpack, mysql 通过模块管理配置模块表跟表结构来生成对应的restful api的实例。
 
 系统主要包括两个功能：
+
 1 模块管理 对模块表进行管理，实现模块表的CRUD操作
+
 2 接口管理 提供接口说明，已经接口调试器方便进行接口调试。
 
 # Examples for [egg](https://github.com/eggjs/egg/)
 
 1 前端使用react+Antd+Dva实现页面功能
+
 2 后端使用eggjs+mysql实现
+
 3 使用npm run dev进行开发
+
 4 npm run build 直接进行构建
+
 5 可作egg项目的简单的boilerplate使用
+
 
 ## 开发
 
@@ -37,9 +44,13 @@ npm run dev
 后端开发地址：  http://localhost:7001
 
 也可以使用：
+
 npm run dev_static 开发前端react+antd的页面
+
 npm run server 开发后端服务器的逻辑
+
 npm run dev 同时开发前后端的业务
+
 
 
 ## Distribute
@@ -50,7 +61,9 @@ $ npm run pro
 ```
 
 npm run build 构建前端代码，前端代码会自动复制到后端目录里面
+
 npm run pro 在服务器启动egg服务，部署上线
+
 访问地址： 
 http://serverIP:7001
 
