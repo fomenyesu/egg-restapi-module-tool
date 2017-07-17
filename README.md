@@ -4,11 +4,6 @@ a example of eggjs, react, antd, dva, webpack, mysql, restful api and other stuf
 
 you can generate rest api eazily by this tool.
 
-![login.png](http://api.dll0.com/public/img/login.png)
-![page1.png](http://api.dll0.com/public/img/page1.png)
-![page2.png](http://api.dll0.com/public/img/page2.png)
-![page3.png](http://api.dll0.com/public/img/page3.png)
-
 [中文 README](https://github.com/fomenyesu/egg-restapi-module-tool/blob/master/README.cn.md)
 
 # Examples for [egg](https://github.com/eggjs/egg/)
@@ -98,6 +93,13 @@ api/restql/users POST insert data
 ```
 
 same with news and news_type for rest api data.
+
+# screen shot
+
+![login.png](http://api.dll0.com/public/img/login.png)
+![page1.png](http://api.dll0.com/public/img/page1.png)
+![page2.png](http://api.dll0.com/public/img/page2.png)
+![page3.png](http://api.dll0.com/public/img/page3.png)
 
 # Thank you
 
