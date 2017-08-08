@@ -29,6 +29,14 @@ install mysql
 start mysql
 import testdb.sql to mysql
 
+### 配置
+
+```
+cd config
+cp config.local.js.example config.local.js
+```
+设置数据库名称，用户名及密码
+
 ```
 npm install
 ```
