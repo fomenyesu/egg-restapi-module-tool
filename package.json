@@ -53,13 +53,15 @@
     "supertest": "^3.0.0",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "xss": "^0.3.4"
   },
   "dependencies": {
-    "draft-js-export-html": "0.5.2",
-    "draftjs-to-html": "^0.7.2",
     "antd": "^2.8.2",
     "co-fs": "^1.2.0",
+    "csrf": "^3.0.6",
+    "draft-js-export-html": "0.5.2",
+    "draftjs-to-html": "^0.7.2",
     "dva": "^1.1.0",
     "dva-loading": "^0.2.0",
     "egg": "^1.0.0",
@@ -81,6 +83,7 @@
     "react-draft-wysiwyg": "^1.8.1",
     "react-helmet": "^5.0.0",
     "react-router": "^2.8.1",
+    "rndm": "^1.2.0",
     "rucksack-css": "^0.9.1",
     "stream-wormhole": "^1.0.3"
   },
