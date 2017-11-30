@@ -8,6 +8,11 @@
 
 2 接口管理 提供接口说明，已经接口调试器方便进行接口调试。
 
+功能更新:
+2017-07-10  初始化
+2017-07-17  发布版本 [egg-restapi-module-tool v0.9 Released](https://github.com/fomenyesu/egg-restapi-module-tool/releases/tag/v0.9) 
+2017-12-01  更新登录组件，加入oauth2.0登录
+
 # Examples for [egg](https://github.com/eggjs/egg/)
 
 1 前端使用react+Antd+Dva实现页面功能

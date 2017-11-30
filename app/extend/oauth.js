@@ -25,14 +25,12 @@ module.exports = (app) => {
     }
 
     * getClient(clientId, clientSecret) {
-      console.log("getClient",clientId, clientSecret);
       if (clientId !== 'eggClient' && clientSecret !== 'SD123dfjhgiy28dsjkfbi12hu3ui') {
         return;
       }
       return {clientId, clientSecret,grants: [ 'password']};
     } 
     * grantTypeAllowed(clientId, grantType) {
-      console.log("grantTypeAllowed");
       let allowed = false;
       if (grantType === 'password' && clientId === 'eggClient') {
         allowed = true;
@@ -43,7 +41,6 @@ module.exports = (app) => {
 
 
     * getUser(username, password) {
-      console.log("getUser");
       return co(app.mysql.get("web_admin", {
         name: username
       })).then(function(data) {
@@ -61,9 +58,7 @@ module.exports = (app) => {
       })
     } 
     * saveToken(token, client, user) {
-      console.log("saveToken");
       const _token = Object.assign({}, token, { user }, { client });
-        console.log(_token);
       co(app.mysql.update("web_admin", {
         accessToken:token.accessToken,
         expires:token.accessTokenExpiresAt,
@@ -83,7 +78,6 @@ module.exports = (app) => {
       return _token;
     } 
     * getAccessToken(bearerToken) {
-      console.log("getAccessToken");
       return co(app.mysql.get("web_admin", {
         accessToken: bearerToken
       })).then(function(data) {
