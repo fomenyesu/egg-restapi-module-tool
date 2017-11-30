@@ -6,6 +6,7 @@ import { Spin, Modal, Input, message } from 'antd'
 import { classnames, config } from '../utils'
 import { Helmet } from 'react-helmet'
 import '../components/skin.less'
+import Cookie from '../utils/js.cookie'
 
 const { Header, Bread, Footer, Sider, styles } = Layout;
 let loginPage = '';
@@ -34,6 +35,9 @@ const App = ({ children, location, dispatch, app, loading }) => {
       dispatch({ type: 'app/switchMenuPopver' })
     },
     logout () {
+      // const href = window.location.origin + '/';
+      Cookie.remove("SESSION_NP");
+      Cookie.remove("SESSION_TOKEN");
       const href = loginPage.split('#')[0];
       window.open(href, "_self");
     },

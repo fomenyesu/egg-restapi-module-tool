@@ -2,6 +2,7 @@
 // const cors = require('koa-cors');
 
 module.exports = app => {
+    console.log(app.oAuth2Server);
   app.get('/', 'client.index');
   app.post('/api/upload', 'uploadfile');
 
@@ -17,4 +18,8 @@ module.exports = app => {
   app.put('/api/table','tableinfo.update');
   app.del('/api/table/:res','tableinfo.destroy');
 
+
+  app.all('/oauth2/access_token', app.oAuth2Server.token());
+  app.post('/user/authorize', app.oAuth2Server.authenticate(), 'user.authenticate');
+  app.get('/user/authenticate', app.oAuth2Server.authenticate(), 'user.authenticate');
 };

@@ -1,6 +1,7 @@
 import { login, userInfo, logout, updatePassword } from '../services/app'
 import { parse } from 'qs'
 import { message } from 'antd'
+import Cookie from '../utils/js.cookie'
 
 export default {
   namespace: 'app',
@@ -23,6 +24,12 @@ export default {
       window.onresize = () => {
         dispatch({ type: 'changeNavbar' })
       }
+      if (Cookie.get("SESSION_NP")) {
+        let temparr = Cookie.get("SESSION_NP");
+        temparr = atob(temparr);
+        temparr = temparr.split("###");
+        dispatch({ type: 'app/login', payload: {name:temparr[0],pass:temparr[1]} })
+      };
     },
   },
   effects: {
@@ -30,17 +37,18 @@ export default {
       payload,
     }, { call, put }) {
       yield put({ type: 'showLoginButtonLoading' })
-      if (payload.name=='admin' && payload.pass=='123') {
+      const data = yield call(login, parse(payload))
+      if (data.success) {
         yield put({
           type: 'loginSuccess',
           payload: {
             user: {
-              name: payload.name,
-              uid:  0
+              name: data.user && data.user.name || "",
+              uid: data.user && data.user.uid || 0
             },
-          } })
+          }})
       } else {
-        message.error('用户名密码错误');
+        message.error(data.message);
         yield put({
           type: 'loginFail',
         })

@@ -23,7 +23,7 @@ exports.robot = {
 
 exports.security = {
   ignore: '/api/',
-  domainWhiteList: ['http://127.0.0.1:8080','http://10.180.144.212:8080','http://localhost:8080'],
+  domainWhiteList: ['http://10.180.152.49:8080','http://127.0.0.1:8080','http://10.180.144.212:8080','http://localhost:8080'],
   methodnoallow: {enable: false },
   csrf: {
     enable: false,
@@ -38,4 +38,9 @@ exports.cors = {
 
 exports.multipart = {
   fileExtensions: ['.xls', '.doc','.ppt','.docx','.xlsx','.pptx' ],
+};
+
+exports.oAuth2Server = {
+  grants: [ 'password'],
+  expires: 60,
 };
