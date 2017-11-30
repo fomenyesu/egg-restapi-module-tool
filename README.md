@@ -4,15 +4,15 @@ a example of eggjs, react, antd, dva, webpack, mysql, restful api and other stuf
 
 you can generate rest api eazily by this tool.
 
-update note:
-
-2017-07-10  initial
-
-2017-07-17  [egg-restapi-module-tool v0.9 Released](https://github.com/fomenyesu/egg-restapi-module-tool/releases/tag/v0.9) 
-
-2017-12-01  update login module with oauth2.0
-
 [中文 README](https://github.com/fomenyesu/egg-restapi-module-tool/blob/master/README.cn.md)
+
+# update note:
+
+#### 2017-07-10  initial
+
+#### 2017-07-17  [egg-restapi-module-tool v0.9 Released](https://github.com/fomenyesu/egg-restapi-module-tool/releases/tag/v0.9) 
+
+#### 2017-12-01  update login module with oauth2.0
 
 # Examples for [egg](https://github.com/eggjs/egg/)
 
