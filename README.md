@@ -6,7 +6,7 @@ you can generate rest api eazily by this tool.
 
 [中文 README](https://github.com/fomenyesu/egg-restapi-module-tool/blob/master/README.cn.md)
 
-# update note:
+## update note:
 
 #### 2017-07-10  initial
 
