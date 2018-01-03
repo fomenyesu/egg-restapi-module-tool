@@ -15,6 +15,7 @@
 #### 2017-07-17  发布版本 [egg-restapi-module-tool v0.9 Released](https://github.com/fomenyesu/egg-restapi-module-tool/releases/tag/v0.9) 
 
 #### 2017-12-01  更新登录组件，加入oauth2.0登录
+#### 2017-01-03  更新DVA到DVA2.0
 
 # Examples for [egg](https://github.com/eggjs/egg/)
 
