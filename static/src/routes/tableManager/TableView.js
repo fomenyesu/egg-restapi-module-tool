@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Input, Form, Button, Upload, Icon, message, DatePicker,Switch } from 'antd';
 import moment from 'moment';
+import { routerRedux } from 'dva/router'
+import { connect } from 'dva';
 
 import config from '../../utils/config';
 
@@ -31,7 +33,7 @@ class TableView extends Component {
 	}
 
 	goBack() {
-		this.context.router.goBack();
+		this.props.dispatch(routerRedux.push({pathname: '/tableManager'}));;
 	}
 
 	render() {
@@ -98,4 +100,7 @@ class TableView extends Component {
 	}
 };
 
-export default Form.create()(TableView);
+
+export default connect(({ tableManager }) => { 
+	return {}
+})(Form.create()(TableView));

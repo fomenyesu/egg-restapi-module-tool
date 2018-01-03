@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva';
 import { Table, Button, Modal,Switch } from 'antd';
 import moment from 'moment';
+import { routerRedux } from 'dva/router'
 
 const columns = [
 	{ title: '序号', dataIndex: 'id' },
@@ -54,9 +55,13 @@ class TableManager extends Component {
 
 	toTableManagerForm(id) {
 		if (id) {
-			this.context.router.push({ pathname: `/tableManager/edit/${id}` });
+      this.props.dispatch(routerRedux.push({pathname: `/tableManager/edit/${id}`}));
+			 // yield put(routerRedux.push({pathname: `/tableManager/edit/${id}`}))
+			// this.context.router.push({ pathname: `/tableManager/edit/${id}` });
 		} else {
-			this.context.router.push({ pathname: '/tableManager/create' });
+			this.props.dispatch(routerRedux.push({pathname: '/tableManager/create'}));
+			// yield put(routerRedux.push({pathname: '/tableManager/create'}))
+			// this.context.router.push({ pathname: '/tableManager/create' });
 		}
 	}
 

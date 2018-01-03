@@ -1,75 +1,51 @@
-import React, { PropTypes } from 'react'
-import { Router } from 'dva/router'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Router, Switch, Route, Redirect, routerRedux } from 'dva/router'
+import dynamic from 'dva/dynamic'
 import App from './routes/app'
 
-const cached = {}
-const registerModel = (app, model) => {
-  if (!cached[model.namespace]) {
-    app.model(model)
-    cached[model.namespace] = 1
-  }
-}
+const { ConnectedRouter } = routerRedux
 
 const Routers = function ({ history, app }) {
+  const error = dynamic({
+    app,
+    component: () => import('./routes/error'),
+  })
   const routes = [
     {
-      path: '/',
-      component: App,
-      getIndexRoute (nextState, cb) {
-        require.ensure([], require => {
-          registerModel(app, require('./models/tableManager'))
-          cb(null, { component: require('./routes/tableManager/') })
-        }, 'tableManager')
-      },
-      childRoutes: [{
-          path: 'showApi',
-          name: 'showApi',
-          getComponent (nextState, cb) {
-            require.ensure([], require => {
-              registerModel(app, require('./models/showApi'))
-              cb(null, require('./routes/showApi/'))
-            }, 'showApi')
-          },
-        },{
-          path: 'tableManager',
-          name: 'tableManager',
-          getIndexRoute (nextState, cb) {
-            require.ensure([], require => {
-              registerModel(app, require('./models/tableManager'))
-              cb(null, { component: require('./routes/tableManager/') })
-            }, 'tableManager')
-          },
-
-          childRoutes: [
-            {
-              path: 'create',
-              name: 'tableManagerCreate',
-
-              getComponent(nextState, cb) {
-                require.ensure([], require => {
-                  registerModel(app, require('./models/tableForm'));
-                  cb(null, require('./routes/tableManager/TableForm'))
-                }, 'tableManager')
-              }
-            },
-            {
-              path: 'edit/:id',
-              name: 'tableManagerEdit',
-
-              getComponent(nextState, cb) {
-                require.ensure([], require => {
-                  registerModel(app, require('./models/tableForm'));
-                  cb(null, require('./routes/tableManager/TableForm'))
-                }, 'tableManager')
-              }
-            }
-          ]
-        }
-      ],
-    },
+      path: '/showApi',
+      models: () => [import('./models/showApi')],
+      component: () => import('./routes/showApi/index'),
+    }, {
+      path: '/tableManager',
+      models: () => [import('./models/tableManager')],
+      component: () => import('./routes/tableManager/index'),
+    }, {
+      path: '/tableManager/create',
+      models: () => [import('./models/tableForm')],
+      component: () => import('./routes/tableManager/TableForm'),
+    },{
+      path: '/tableManager/edit/:id',
+      models: () => [import('./models/tableForm')],
+      component: () => import('./routes/tableManager/TableForm'),
+    }
   ]
 
-  return <Router history={history} routes={routes} />
+  return (
+    <ConnectedRouter history={history}>
+      <App>
+        <Switch>
+          <Route exact path='/' render={() => (<Redirect to='/tableManager' />)} />
+          {
+            routes.map(({ path, ...dynamics }, key) => (
+              <Route key={key} exact path={path} component={dynamic({ app, ...dynamics })} />
+            ))
+          }
+          <Route component={error} />
+        </Switch>
+      </App>
+    </ConnectedRouter>
+  )
 }
 
 Routers.propTypes = {

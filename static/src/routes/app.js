@@ -7,6 +7,7 @@ import { classnames, config } from '../utils'
 import { Helmet } from 'react-helmet'
 import '../components/skin.less'
 import Cookie from '../utils/js.cookie'
+import { withRouter } from 'dva/router'
 
 const { Header, Bread, Footer, Sider, styles } = Layout;
 let loginPage = '';
@@ -127,4 +128,5 @@ App.propTypes = {
   loading: PropTypes.bool
 }
 
-export default connect(({ app, loading }) => ({ app, loading: loading.models.app }))(App)
+export default withRouter(connect(({ app, loading }) => ({ app, loading: loading.models.app }))(App))
+// export default connect(({ app, loading }) => ({ app, loading: loading.models.app }))(App)

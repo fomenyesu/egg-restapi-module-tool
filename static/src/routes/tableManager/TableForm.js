@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva';
 import TableView from './TableView';
+import { routerRedux } from 'dva/router'
 
 import { message } from 'antd';
 import { attachmentURL } from '../../utils/config';
@@ -34,7 +35,7 @@ class TableForm extends Component {
 	}
 
 	goBack() {
-		this.context.router.goBack();
+		this.props.dispatch(routerRedux.push({pathname: '/tableManager'}));;
 	}
 
 	onSubmit(values) {

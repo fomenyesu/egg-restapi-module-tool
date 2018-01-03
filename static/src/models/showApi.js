@@ -11,7 +11,7 @@ export default {
   },
   subscriptions: {
     setup({ dispatch, history }) {
-      return history.listen(({ pathname, query }) => {
+      return history.listen(({ pathname }) => {
         if (pathname === '/showApi') {
           dispatch({ type: 'showApi/loadShowApi'});
         }
