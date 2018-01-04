@@ -1,6 +1,6 @@
 # Egg Restful Api Module Tool
 
-一个使用 eggjs, react, antd, dva, webpack, mysql 通过模块管理配置模块表跟表结构来生成对应的restful api的实例。
+一个使用 eggjs2.0, react, antd, dva2.0, webpack, mysql 通过模块管理配置模块表跟表结构来生成对应的restful api的实例。
 
 系统主要包括两个功能：
 
@@ -15,7 +15,8 @@
 #### 2017-07-17  发布版本 [egg-restapi-module-tool v0.9 Released](https://github.com/fomenyesu/egg-restapi-module-tool/releases/tag/v0.9) 
 
 #### 2017-12-01  更新登录组件，加入oauth2.0登录
-#### 2017-01-03  更新DVA到DVA2.0
+#### 2017-01-03  更新 dva 到 dva2.0
+#### 2017-01-04  更新 egg 到 egg2.0
 
 # Examples for [egg](https://github.com/eggjs/egg/)
 

@@ -1,6 +1,6 @@
 # Egg Restapi Module Tool
 
-a example of eggjs, react, antd, dva, webpack, mysql, restful api and other stuff made it work...
+a example of eggjs2.0, react, antd, dva2.0, webpack, mysql, restful api and other stuff made it work...
 
 you can generate rest api eazily by this tool.
 
@@ -14,10 +14,11 @@ you can generate rest api eazily by this tool.
 
 #### 2017-12-01  update login module with oauth2.0
 #### 2017-01-03  update dva to dva2.0
+#### 2017-01-04  update egg to egg2.0
 
 # Examples for [egg](https://github.com/eggjs/egg/)
 
-use react, Antd and Dva to develop front end modules. use eggjs and mysql to be backend. 
+use react, Antd and dva to develop front end modules. use eggjs and mysql to be backend. 
 you can use npm run dev to develop both side's service. or use it as a boilerplate.
 
 this example include two modules:
