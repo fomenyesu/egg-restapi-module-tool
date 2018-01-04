@@ -1,19 +1,19 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'dva';
-import TableView from './TableView';
-import { routerRedux } from 'dva/router'
+import React, { Component, PropTypes } from "react";
+import { connect } from "dva";
+import TableView from "./TableView";
+import { routerRedux } from "dva/router";
 
-import { message } from 'antd';
-import { attachmentURL } from '../../utils/config';
+import { message } from "antd";
+import { attachmentURL } from "../../utils/config";
 
 const Const = {
-	module: 'tableManager'
-}
+	module: "tableManager"
+};
 
 class TableForm extends Component {
 	static contextTypes = {
 		router: PropTypes.object
-	}
+	};
 
 	constructor(props, context) {
 		super(props, context);
@@ -24,25 +24,25 @@ class TableForm extends Component {
 		const { dispatch } = this.props;
 
 		if (id) {
-			dispatch({ type: 'tableForm/loadTable', payload: { id, ...Const } });
+			dispatch({ type: "tableForm/loadTable", payload: { id, ...Const } });
 		}
 	}
 
 	componentWillUnmount() {
 		this.props.dispatch({
-			type: 'tableForm/resetState'
+			type: "tableForm/resetState"
 		});
 	}
 
 	goBack() {
-		this.props.dispatch(routerRedux.push({pathname: '/tableManager'}));;
+		this.props.dispatch(routerRedux.push({ pathname: "/tableManager" }));
 	}
 
 	onSubmit(values) {
-		const hide = message.loading('正在保存...', 0);
+		const hide = message.loading("正在保存...", 0);
 
-		this.props.dispatch({ 
-			type: 'tableForm/saveTable',
+		this.props.dispatch({
+			type: "tableForm/saveTable",
 			payload: {
 				...this.props,
 				template: values.template,
@@ -51,14 +51,14 @@ class TableForm extends Component {
 				status: values.status,
 				time: values.time,
 				...Const,
-				callback: (data) => {
+				callback: data => {
 					hide();
 
 					if (data && data.success) {
-						message.success('保存成功');
+						message.success("保存成功");
 						this.goBack();
 					} else {
-						message.error('保存失败');
+						message.error("保存失败");
 					}
 				}
 			}
@@ -75,8 +75,9 @@ class TableForm extends Component {
 				status={props.status}
 				seotitle={props.seotitle}
 				time={props.time}
-				onSubmit={this.onSubmit.bind(this)}/>
-		)
+				onSubmit={this.onSubmit.bind(this)}
+			/>
+		);
 	}
 }
 
@@ -86,5 +87,5 @@ export default connect(({ tableForm, app }) => {
 		content: tableForm.con,
 		uid: app.user.uid,
 		name: app.user.name
-	}
+	};
 })(TableForm);

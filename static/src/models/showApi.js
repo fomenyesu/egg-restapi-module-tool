@@ -1,34 +1,33 @@
-import { query} from '../services/showApi'
-import config from '../utils/config'
+import { query } from "../services/showApi";
+import config from "../utils/config";
 
 export default {
-
-  namespace: 'showApi',
+  namespace: "showApi",
 
   state: {
     tableList: [],
-    loading: false,
+    loading: false
   },
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname }) => {
-        if (pathname === '/showApi') {
-          dispatch({ type: 'showApi/loadShowApi'});
+        if (pathname === "/showApi") {
+          dispatch({ type: "showApi/loadShowApi" });
         }
       });
-    },
+    }
   },
 
   effects: {
     *loadShowApi({ payload }, { call, put }) {
-      yield put({ type: 'showLoading' });
+      yield put({ type: "showLoading" });
       const data = yield call(query, payload);
       yield put({
-        type: 'loadShowApiSuccess',
-        payload: {data}
+        type: "loadShowApiSuccess",
+        payload: { data }
       });
-      yield put({ type: 'hideLoading' });
-    },
+      yield put({ type: "hideLoading" });
+    }
   },
 
   reducers: {
@@ -40,22 +39,22 @@ export default {
     },
     loadShowApiSuccess(state, action) {
       const actionData = action.payload.data.data.record;
-        console.log(actionData);
+      console.log(actionData);
       let result = [];
-       actionData.forEach((v)=>{
-         ['list','post','put','delete','show'].forEach((v1)=>{
+      actionData.forEach(v => {
+        ["list", "post", "put", "delete", "show"].forEach(v1 => {
           result.push({
-            url: config.devBaseURL+"/api/restql/"+v.template,
+            url: config.devBaseURL + "/api/restql/" + v.template,
             desc: v.template_name,
             method: v1,
-            data:{}
-          })
-        })
+            data: {}
+          });
+        });
       });
       return {
-        ...state, 
-        list: result,
+        ...state,
+        list: result
       };
     }
   }
-}
+};

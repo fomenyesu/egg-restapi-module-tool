@@ -1,58 +1,57 @@
-import { query, remove, update, removeTable } from '../services/tableManager'
+import { query, remove, update, removeTable } from "../services/tableManager";
 
 export default {
-
-  namespace: 'tableManager',
+  namespace: "tableManager",
 
   state: {
     list: [],
     selectedRowKeys: [],
     loading: false,
     pagination: {
-      current: 1, 
+      current: 1,
       pageSize: 10,
       total: 0
-    },
+    }
   },
 
   effects: {
     *loadTableManager({ payload }, { call, put }) {
-      yield put({ type: 'showLoading' });
-      payload.sortField = 'time';
-      payload.sortOrder = 'desc';
+      yield put({ type: "showLoading" });
+      payload.sortField = "time";
+      payload.sortOrder = "desc";
       const data = yield call(query, payload);
       yield put({
-        type: 'loadTableManagerSuccess',
+        type: "loadTableManagerSuccess",
         payload: {
           data,
           current: payload.page,
           pageSize: payload.pageSize
         }
       });
-      yield put({ type: 'hideLoading' });
-      yield put({ type: 'selectedRowKeys', payload: { selectedRowKeys: [] } });
+      yield put({ type: "hideLoading" });
+      yield put({ type: "selectedRowKeys", payload: { selectedRowKeys: [] } });
     },
 
     *removeTableManager({ payload }, { call, put }) {
-      yield put({ type: 'showLoading' });
+      yield put({ type: "showLoading" });
       const data = yield call(remove, payload);
-        console.log("delete payload",payload);
-      const tableData = yield call(removeTable,payload);
+      console.log("delete payload", payload);
+      const tableData = yield call(removeTable, payload);
       if (data && data.success) {
         yield put({
-          type: 'loadTableManager',
+          type: "loadTableManager",
           payload: {
             page: 1,
             pageSize: 10
           }
         });
       } else {
-        yield put({ type: 'hideLoading' });
+        yield put({ type: "hideLoading" });
       }
     },
 
     *updateTableManager({ payload }, { call, put }) {
-      yield put({ type: 'showLoading' });
+      yield put({ type: "showLoading" });
       const page = payload.page;
       const pageSize = payload.pageSize;
 
@@ -60,18 +59,17 @@ export default {
       delete payload.pageSize;
 
       const data = yield call(update, payload);
-      
 
       if (data && data.success) {
         yield put({
-          type: 'loadTableManager',
+          type: "loadTableManager",
           payload: {
             page: page,
             pageSize: pageSize
           }
-        })
+        });
       } else {
-        yield put({ type: 'hideLoading' });
+        yield put({ type: "hideLoading" });
       }
     }
   },
@@ -89,7 +87,7 @@ export default {
     loadTableManagerSuccess(state, action) {
       const actionData = action.payload.data;
       return {
-        ...state, 
+        ...state,
         list: actionData.data.record,
         selectedRowKeys: [],
         pagination: {
@@ -100,4 +98,4 @@ export default {
       };
     }
   }
-}
+};

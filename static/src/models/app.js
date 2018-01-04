@@ -1,176 +1,167 @@
-import { login, userInfo, logout, updatePassword } from '../services/app'
-import { parse } from 'qs'
-import { message } from 'antd'
-import Cookie from '../utils/js.cookie'
+import { login, userInfo, logout, updatePassword } from "../services/app";
+import { parse } from "qs";
+import { message } from "antd";
+import Cookie from "../utils/js.cookie";
 
 export default {
-  namespace: 'app',
+  namespace: "app",
   state: {
     login: false,
     user: {
-      name: '',
-      uid: ''
+      name: "",
+      uid: ""
     },
     loginButtonLoading: false,
     menuPopoverVisible: false,
-    siderFold: localStorage.getItem('antdAdminSiderFold') === 'true',
-    darkTheme: localStorage.getItem('antdAdminDarkTheme') !== 'false',
+    siderFold: localStorage.getItem("antdAdminSiderFold") === "true",
+    darkTheme: localStorage.getItem("antdAdminDarkTheme") !== "false",
     isNavbar: document.body.clientWidth < 769,
-    navOpenKeys: JSON.parse(localStorage.getItem('navOpenKeys') || '[]'),
+    navOpenKeys: JSON.parse(localStorage.getItem("navOpenKeys") || "[]"),
     passwordModalVisible: false
   },
   subscriptions: {
-    setup ({ dispatch }) {
+    setup({ dispatch }) {
       window.onresize = () => {
-        dispatch({ type: 'changeNavbar' })
-      }
+        dispatch({ type: "changeNavbar" });
+      };
       if (Cookie.get("SESSION_NP")) {
         let temparr = Cookie.get("SESSION_NP");
         temparr = atob(temparr);
         temparr = temparr.split("###");
-        dispatch({ type: 'app/login', payload: {name:temparr[0],pass:temparr[1]} })
-      };
-    },
+        dispatch({
+          type: "app/login",
+          payload: { name: temparr[0], pass: temparr[1] }
+        });
+      }
+    }
   },
   effects: {
-    *login ({
-      payload,
-    }, { call, put }) {
-      yield put({ type: 'showLoginButtonLoading' })
-      const data = yield call(login, parse(payload))
+    *login({ payload }, { call, put }) {
+      yield put({ type: "showLoginButtonLoading" });
+      const data = yield call(login, parse(payload));
       if (data.success) {
         yield put({
-          type: 'loginSuccess',
+          type: "loginSuccess",
           payload: {
             user: {
-              name: data.user && data.user.name || "",
-              uid: data.user && data.user.uid || 0
-            },
-          }})
+              name: (data.user && data.user.name) || "",
+              uid: (data.user && data.user.uid) || 0
+            }
+          }
+        });
       } else {
         message.error(data.message);
         yield put({
-          type: 'loginFail',
-        })
+          type: "loginFail"
+        });
       }
     },
-    *queryUser ({
-      payload,
-    }, { call, put }) {
-      const data = yield call(userInfo, parse(payload))
+    *queryUser({ payload }, { call, put }) {
+      const data = yield call(userInfo, parse(payload));
       if (data.success) {
         yield put({
-          type: 'loginSuccess',
+          type: "loginSuccess",
           payload: {
             user: {
               name: data.user.name,
               uid: data.user.uid
-            },
-          },
-        })
+            }
+          }
+        });
       }
     },
-    *switchSider ({
-      payload,
-    }, { put }) {
+    *switchSider({ payload }, { put }) {
       yield put({
-        type: 'handleSwitchSider',
-      })
+        type: "handleSwitchSider"
+      });
     },
-    *changeTheme ({
-      payload,
-    }, { put }) {
+    *changeTheme({ payload }, { put }) {
       yield put({
-        type: 'handleChangeTheme',
-      })
+        type: "handleChangeTheme"
+      });
     },
-    *changeNavbar ({
-      payload,
-    }, { put }) {
+    *changeNavbar({ payload }, { put }) {
       if (document.body.clientWidth < 769) {
-        yield put({ type: 'showNavbar' })
+        yield put({ type: "showNavbar" });
       } else {
-        yield put({ type: 'hideNavbar' })
+        yield put({ type: "hideNavbar" });
       }
     },
-    *switchMenuPopver ({
-      payload,
-    }, { put }) {
+    *switchMenuPopver({ payload }, { put }) {
       yield put({
-        type: 'handleSwitchMenuPopver',
-      })
+        type: "handleSwitchMenuPopver"
+      });
     },
 
     //修改密码
     *changePassword({ payload }, { call, put }) {
-        const { callback, ...params } = payload;
-        const data = yield call(updatePassword, params);
-        if (data && data.success) {
-          yield put({ type: 'hidePasswordModal' });
-        }
-        callback(data);
+      const { callback, ...params } = payload;
+      const data = yield call(updatePassword, params);
+      if (data && data.success) {
+        yield put({ type: "hidePasswordModal" });
+      }
+      callback(data);
     }
   },
   reducers: {
-    loginSuccess (state, action) {
+    loginSuccess(state, action) {
       return {
         ...state,
         ...action.payload,
         login: true,
-        loginButtonLoading: false,
-      }
+        loginButtonLoading: false
+      };
     },
-    loginFail (state) {
-
+    loginFail(state) {
       return {
         ...state,
         login: false,
-        loginButtonLoading: false,
-      }
+        loginButtonLoading: false
+      };
     },
-    showLoginButtonLoading (state) {
+    showLoginButtonLoading(state) {
       return {
         ...state,
-        loginButtonLoading: true,
-      }
+        loginButtonLoading: true
+      };
     },
-    handleSwitchSider (state) {
-      localStorage.setItem('antdAdminSiderFold', !state.siderFold)
+    handleSwitchSider(state) {
+      localStorage.setItem("antdAdminSiderFold", !state.siderFold);
       return {
         ...state,
-        siderFold: !state.siderFold,
-      }
+        siderFold: !state.siderFold
+      };
     },
-    handleChangeTheme (state) {
-      localStorage.setItem('antdAdminDarkTheme', !state.darkTheme)
+    handleChangeTheme(state) {
+      localStorage.setItem("antdAdminDarkTheme", !state.darkTheme);
       return {
         ...state,
-        darkTheme: !state.darkTheme,
-      }
+        darkTheme: !state.darkTheme
+      };
     },
-    showNavbar (state) {
+    showNavbar(state) {
       return {
         ...state,
-        isNavbar: true,
-      }
+        isNavbar: true
+      };
     },
-    hideNavbar (state) {
+    hideNavbar(state) {
       return {
         ...state,
-        isNavbar: false,
-      }
+        isNavbar: false
+      };
     },
-    handleSwitchMenuPopver (state) {
+    handleSwitchMenuPopver(state) {
       return {
         ...state,
-        menuPopoverVisible: !state.menuPopoverVisible,
-      }
+        menuPopoverVisible: !state.menuPopoverVisible
+      };
     },
-    handleNavOpenKeys (state, action) {
+    handleNavOpenKeys(state, action) {
       return {
         ...state,
-        ...action.payload,
-      }
+        ...action.payload
+      };
     },
 
     showPasswordModal(state) {
@@ -180,5 +171,5 @@ export default {
     hidePasswordModal(state) {
       return { ...state, passwordModalVisible: false };
     }
-  },
-}
+  }
+};

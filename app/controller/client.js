@@ -1,11 +1,10 @@
-
-'use strict';
+"use strict";
 
 module.exports = app => {
   class ClientController extends app.Controller {
-    * index() {
+    *index() {
       const ctx = this.ctx;
-      ctx.body = yield ctx.renderView('public/index.html');
+      ctx.body = yield ctx.renderView("public/index.html");
     }
   }
   return ClientController;
