@@ -13,15 +13,16 @@ export async function login(params) {
     }
   });
 }
+
 export async function updatePassword(params) {
   const uid = params.uid;
 
   return request({
-    url: `/api/restql/users/${uid}`,
-    method: "put",
+    url: `/api/restql/web_admin/${uid}`,
+    method: 'put',
     data: {
-      username: params.name,
-      password: params.password
+      name: params.name,
+      pass: params.password
     }
-  });
+  })
 }
