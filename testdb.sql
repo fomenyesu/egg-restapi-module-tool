@@ -21,7 +21,7 @@ CREATE TABLE `web_admin` (
 -- ----------------------------
 -- Records of web_admin
 -- ----------------------------
-INSERT INTO `web_admin` VALUES ('1', 'admin', '123', '0', null, null, null, null);
+INSERT INTO `web_admin` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '0', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for web_news
