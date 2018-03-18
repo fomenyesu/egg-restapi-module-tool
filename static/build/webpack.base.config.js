@@ -122,7 +122,7 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i,
         loader: "url?limit=10000"
       },
-      { test: /\.json$/, loader: "json" },
+      { test: /\.json$/, loader: "json-loader" },
       { test: /\.html?$/, loader: "file-loader?name=[name].[ext]" }
     ]
   },
