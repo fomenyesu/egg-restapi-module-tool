@@ -13,8 +13,8 @@ you can generate rest api eazily by this tool.
 #### 2017-07-17  [egg-restapi-module-tool v0.9 Released](https://github.com/fomenyesu/egg-restapi-module-tool/releases/tag/v0.9) 
 
 #### 2017-12-01  update login module with oauth2.0
-#### 2017-01-03  update dva to dva2.0
-#### 2017-01-04  update egg to egg2.0
+#### 2018-01-03  update dva to dva2.0
+#### 2018-01-04  update egg to egg2.0
 
 # Examples for [egg](https://github.com/eggjs/egg/)
 
