@@ -34,6 +34,7 @@ start mysql
 import testdb.sql to mysql
 
 ```
+npm i egg-bin --save-dev
 npm install
 ```
 #### Start up：
