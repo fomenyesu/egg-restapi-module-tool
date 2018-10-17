@@ -107,10 +107,10 @@ same with news and news_type for rest api data.
 
 # screen shot
 
-![login.png](http://api.dll0.com/public/img/login.png)
-![page1.png](http://api.dll0.com/public/img/page1.png)
-![page2.png](http://api.dll0.com/public/img/page2.png)
-![page3.png](http://api.dll0.com/public/img/page3.png)
+![login.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest.png)
+![page1.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest1.png)
+![page2.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest2.png)
+![page3.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest3.png)
 
 # Thank you
 
