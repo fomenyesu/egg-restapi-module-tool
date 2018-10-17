@@ -125,10 +125,10 @@ api/restql/users/2 DELETE Delete data with uid
 其他新增的模块都会自动生成这5种restful API请求接口。
 
 # 截屏
-![login.png](http://api.dll0.com/public/img/login.png)
-![page1.png](http://api.dll0.com/public/img/page1.png)
-![page2.png](http://api.dll0.com/public/img/page2.png)
-![page3.png](http://api.dll0.com/public/img/page3.png)
+![login.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest.png)
+![page1.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest1.png)
+![page2.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest2.png)
+![page3.png](https://raw.githubusercontent.com/fomenyesu/egg-restapi-module-tool/master/static/assets/modulerest3.png)
 
 # 感谢
 [egg](https://github.com/eggjs/egg/)
